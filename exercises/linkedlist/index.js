@@ -14,10 +14,26 @@ class LinkedList {
         this.head = null
     }
 
-    insertFirst() {
+    insertFirst(data) {
+        this.head = new Node(data, this.head)
+    }
 
+    size() {
+        let counter = 0
+        let node = this.head
+
+        while (node) {
+            counter++
+            node = node.next
+        }
     }
 }
+
+const list = new LinkedList()
+list.insertFirst('a')
+list.insertFirst('b')
+list.insertFirst('c')
+list.size(); // returns 3
 
 
 module.exports = { Node, LinkedList };

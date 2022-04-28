@@ -47,12 +47,28 @@ class LinkedList {
 
         return node
     }
-}
 
+    clear() {
+        this.head = null
+    }
+
+    removeFirst() {
+        if (!this.head) {
+            return null
+        }
+        
+        this.head= this.head.next
+    }
+
+    removeLast() {
+        
+    }
+}
 	
 const list = new LinkedList();
 list.insertFirst('a');
 list.insertFirst('b');
-console.log(list.getLast())
+list.removeFirst();
+console.log(list.getFirst()); // returns node with data 'a'
 
 module.exports = { Node, LinkedList };

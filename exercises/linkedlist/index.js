@@ -26,14 +26,33 @@ class LinkedList {
             counter++
             node = node.next
         }
+
+        return counter
+    }
+
+    getFirst() {
+        return this.head
+    }
+
+    getLast() {
+        if (!this.head) {
+            return null
+        }
+        
+        let node = this.head
+        
+        while (node.next) {
+            node = node.next
+        }
+
+        return node
     }
 }
 
-const list = new LinkedList()
-list.insertFirst('a')
-list.insertFirst('b')
-list.insertFirst('c')
-list.size(); // returns 3
-
+	
+const list = new LinkedList();
+list.insertFirst('a');
+list.insertFirst('b');
+console.log(list.getLast())
 
 module.exports = { Node, LinkedList };

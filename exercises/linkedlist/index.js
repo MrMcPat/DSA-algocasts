@@ -119,14 +119,34 @@ class LinkedList {
             }
         return node
         }
-    } 
+    }
+
+    removeAt(num) {
+        if (!this.head) {
+            return
+        }
+
+        if (num === 0) {
+             this.head = this.head.next
+             return  
+        } 
+   
+        const previous = this.getAt(num - 1)
+
+        if(!previous || !previous.next) {
+            return null
+        } else {
+            previous.next = previous.next.next
+        }
+
+    }
 }
 	
 const list = new LinkedList();
 list.insertFirst('a');
 list.insertFirst('b');
 list.insertFirst('c');
-list.getAt(1); // returns node with data 'b'
-console.log(list.getAt(2))
+list.removeAt(1);
+console.log(list.getAt(1)); // returns node with data 'a'
 
 module.exports = { Node, LinkedList };

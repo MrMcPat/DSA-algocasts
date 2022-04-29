@@ -106,7 +106,6 @@ class LinkedList {
         } else {
             this.head = new Node(data)
         }
-
     }
 
     getAt(num) {
@@ -160,16 +159,25 @@ class LinkedList {
         const previous = this.getAt(num - 1) || this.getLast()
 
         previous.next = new Node(data, previous.next)
+    }
 
+    forEach(fn) {
+        let node = this.head;
+        let counter = 0;
+        while (node) {
+          fn(node, counter);
+          node = node.next;
+          counter++;
+        }
+    }
+    
+    *[Symbol.iterator]() {
+        let node = this.head;
+        while (node) {
+          yield node;
+          node = node.next;
+        }
     }
 }
-	
-const list = new LinkedList();
-list.insertFirst('a');
-list.insertFirst('b');
-list.insertFirst('c');
-list.insertAt('Hi', 1)
-list.getAt(2); // returns node with data 'Hi'
-console.log(list.getAt(1))
 
 module.exports = { Node, LinkedList };

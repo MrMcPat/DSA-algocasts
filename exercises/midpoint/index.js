@@ -12,8 +12,6 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-const LinkedList = require("./linkedlist");
-
 function midpoint(list) {
   let slow = list.getFirst();
   let fast = list.getFirst();
